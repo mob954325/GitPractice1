@@ -243,7 +243,7 @@ void ItemManager::Show()
 
 #pragma endregion
 
-
+#pragma region main
 int main()
 {
 	cout << "아이템을 입력하세요. (고유아이디, 이름, 레벨, 등급)\n";
@@ -280,3 +280,4 @@ int main()
 	manager.ItemSynthesis(target, ingredien);
 	manager.Show();
 }
+#pragma endregion
