@@ -25,8 +25,9 @@ enum SceneState
 
 ### 상태 목록
 
-| Enter | Scene의 OnEnter()가 호출될 때 해당 상태로 변합니다 OnEnterImpl() 함수가 실행되기 전 입니다. |
+| 함수명 | 설명 |
 | --- | --- |
+| Enter | Scene의 OnEnter()가 호출될 때 해당 상태로 변합니다 OnEnterImpl() 함수가 실행되기 전 입니다. |
 | Playing | Scene의 OnEnter()가 호출되고 OnEnterImpl()가 호출된 이후 해당 상태가 됩니다. 해당 상태는 SceneManager에서 변경을 요청하기 전까지 유지됩니다. |
 | ReadyToChange | SceneManager에서 씬 변경을 요청했을 때 해당 상태로 변경됩니다. 해당 상태는 프레임의 마지막에 CheckSceneLoad()가 호출되고 OnExit()가 호출되기 전까지 유지됩니다. |
 | Exit | Scene의 OnExit()가 호출될 때 변경됩니다. 해당 상태일 땐 Scene에 있는 모든 오브젝트 컨테이너의 내용을 해제하고 Clear합니다. |
@@ -111,38 +112,33 @@ protected:
 
 Public
 
-| OnEnter | 씬이 처음 실행될 때 호출되는 함수 |
+| 함수명 | 설명 |
 | --- | --- |
+| OnEnter | 씬이 처음 실행될 때 호출되는 함수 |
 | Update | 매 프레임마다 시스템 클래스가 업데이트되는 함수 |
 | FixedUpdate | 매 ~~물리~~ 프레임마다 물리 시스템 클래스가 업데이트 되는 함수 |
 | LateUpdate | Update, FixedUpdate가 끝나고 실행되는 업데이트 함수 |
 | OnExit | 씬이 종료될 때 호출 되는 함수 |
 | CleanUpDestroyedObjects | Application에서 모든 프레임이 끝날 때 제거될 예정인 오브젝트를 제거하는 함수 |
 | AddGameObject | 씬에 오브젝트를 추가하는 함수 |
-| FindRemoveObject | **CleanUpDestroyedObjects() 에서 맨 먼저 호출됨**
-
-제거될 예정인 게임오브젝트를 activeObjects에서 objectsToDestroy로 옮기는 함수 |
-| FindByName | **IGameObjectQuery 인터페이스 정의 함수**
-게임 오브젝트가 다른 게임 오브젝트를 찾을 때 사용되는 함수 |
+| FindRemoveObject | **CleanUpDestroyedObjects() 에서 맨 먼저 호출됨**, 제거될 예정인 게임오브젝트를 activeObjects에서 objectsToDestroy로 옮기는 함수 |
+| FindByName | **IGameObjectQuery 인터페이스 정의 함수**, 게임 오브젝트가 다른 게임 오브젝트를 찾을 때 사용되는 함수 |
 
 Protected
 
-| AddCreatedObjects | 매 첫 Update()에서 실행됨
-objectsToAdd에서 activeObjects로 게임 오브젝트를 추가하는 함수 |
+| 함수명 | 설명 |
 | --- | --- |
-| CheckGameObjectStartQueue | **MonoBehavior의 지연 등록 이후 실행**
-모든 게임 오브젝트에서 OnStart가 실행되지 않는 컴포넌트가 있는지 확인하고 실행하는 함수 |
-| OnEnterImpl | **순수 가상 함수** 
-상속받은 클래스에서 OnEnter에 실행할 내용을 정의하는 함수 |
-| OnExitImpl | 순수 가상 함수
-상속받은 클래스에서 OnExit에 실행할 내용을 정의하는 함수 |
-| UpdateImpl | 순수 가상 함수
-상속받은 클래스에서 OnUpdate에 실행할 내용을 정의하는 함수 |
+| AddCreatedObjects | **매 첫 Update()에서 실행됨**, objectsToAdd에서 activeObjects로 게임 오브젝트를 추가하는 함수 |
+| CheckGameObjectStartQueue | **MonoBehavior의 지연 등록 이후 실행**, 모든 게임 오브젝트에서 OnStart가 실행되지 않는 컴포넌트가 있는지 확인하고 실행하는 함수 |
+| OnEnterImpl | 순수 가상 함수, 상속받은 클래스에서 OnEnter에 실행할 내용을 정의하는 함수 |
+| OnExitImpl | 순수 가상 함수, 상속받은 클래스에서 OnExit에 실행할 내용을 정의하는 함수 |
+| UpdateImpl | 순수 가상 함수, 상속받은 클래스에서 OnUpdate에 실행할 내용을 정의하는 함수 |
 
 ## 멤버 변수
 
-| activeObjects | 매 프레임마다 업데이트되는 오브젝트들 |
+| 함수명 | 설명 |
 | --- | --- |
+| activeObjects | 매 프레임마다 업데이트되는 오브젝트들 |
 | objectsToDestroy | 모든 업데이트가 끝난 시점에서 제거될 오브젝트들 |
 | objectsToAdd | 다음 프레임에 activeObjects에 포함될 오브젝트들 |
 | state | 현재 Scene 상태 |
