@@ -127,7 +127,7 @@ Public
 
 Protected
 
-| AddCreatedObjects | **매 첫 Update()에서 실행됨**
+| AddCreatedObjects | 매 첫 Update()에서 실행됨
 objectsToAdd에서 activeObjects로 게임 오브젝트를 추가하는 함수 |
 | --- | --- |
 | CheckGameObjectStartQueue | **MonoBehavior의 지연 등록 이후 실행**
